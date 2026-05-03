@@ -55,12 +55,12 @@ export const testimonials: Testimonial[] = [
     quote:
       "Training at Medha Computers was practical and easy to follow. I learned skills I could use right away, and the supportive teaching helped me grow confident with computers and technology.",
     name: "Rishitha G.C.V",
-    role: "Student",
+    role: "Senior Process Associate",
     year: "2022",
     credential: "Medha Computers alumnus",
     initials: "RG",
     photoSrc: "/testimonials/rishi.png",
-    photoAlt: "Rishitha G.C.V — Medha Computers alumnus",
+    photoAlt: "Rishitha G.C.V — Senior Process Associate, Medha Computers alumnus",
   },
 ];
 
