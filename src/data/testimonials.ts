@@ -24,6 +24,8 @@ export const testimonials: Testimonial[] = [
     year: "2025",
     credential: "Medha Computers alumnus",
     initials: "SG",
+    photoSrc: "/testimonials/saketh.png",
+    photoAlt: "Saketh G. — Cloud Consultant, Medha Computers alumnus",
   },
   {
     quoteTe:
@@ -35,6 +37,19 @@ export const testimonials: Testimonial[] = [
     year: "2009",
     credential: "Medha Computers alumnus",
     initials: "NKM",
+    photoSrc: "/testimonials/nikhil.png",
+    photoAlt: "Nikhil Kumar M. — Customer Success Manager, Medha Computers alumnus",
+  },
+  {
+    quote:
+      "I had a very good experience during my computer course at Medha Computers, which I completed between my intermediate and B.Tech studies. This made it much easier for me to understand the subjects during my B.Tech. The training was easy to understand and helped me to learn useful skills. The course also improved my confidence and supported my overall career growth in the IT field.",
+    name: "Y.C. Bindu Priya",
+    role: "Software Engineer",
+    year: "2021",
+    credential: "Medha Computers alumnus",
+    initials: "YB",
+    photoSrc: "/testimonials/bindu.png",
+    photoAlt: "Y.C. Bindu Priya — Software Engineer, Medha Computers alumnus",
   },
 ];
 

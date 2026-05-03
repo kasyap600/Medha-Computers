@@ -1,11 +1,71 @@
-import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
 import { site } from "../../data/site";
+import type { Testimonial } from "../../data/testimonials";
 import { testimonials } from "../../data/testimonials";
 import { SectionHeading } from "../ui/SectionHeading";
 
-const bubble =
-  "flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-cta/25 font-display text-sm font-bold text-primary ring-2 ring-paper";
+const avatarShell =
+  "float-left mr-3 mb-1 mt-0.5 h-12 w-12 shrink-0 rounded-sm border border-primary/20 bg-surface";
+
+function TestimonialCard({
+  t,
+  duplicate,
+  fillGrid,
+}: {
+  t: Testimonial;
+  duplicate?: boolean;
+  /** Full width inside stacked / grid layout (reduced motion). */
+  fillGrid?: boolean;
+}) {
+  return (
+    <blockquote
+      className={`relative shrink-0 overflow-hidden rounded-xl border border-primary/10 bg-paper shadow-sm ${
+        fillGrid ? "w-full max-w-lg" : "w-[min(88vw,300px)] sm:w-[320px]"
+      }`}
+      aria-hidden={duplicate ? true : undefined}
+    >
+      <div className="flow-root p-4">
+        {t.photoSrc ? (
+          <img
+            src={t.photoSrc}
+            alt={duplicate ? "" : t.photoAlt ?? `${t.name}`}
+            className={`${avatarShell} object-cover`}
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          <div
+            className={`${avatarShell} flex items-center justify-center font-display text-[11px] font-bold text-primary`}
+            aria-hidden
+          >
+            {t.initials}
+          </div>
+        )}
+
+        <p className="font-display text-sm font-semibold leading-snug text-primary">– {t.name}</p>
+        <p className="text-xs leading-snug text-primary sm:text-sm">
+          {t.role}
+          {t.year ? ` · ${t.year}` : null}
+        </p>
+        {t.credential ? (
+          <p className="mt-0.5 text-[11px] leading-snug text-primary/45">{t.credential}</p>
+        ) : null}
+
+        {t.quoteTe ? (
+          <p className="mt-3 text-xs leading-relaxed text-primary/55 sm:text-sm" lang="te">
+            “{t.quoteTe}”
+          </p>
+        ) : null}
+        <p
+          className={`text-xs leading-relaxed text-primary/45 sm:text-sm ${
+            t.quoteTe ? "mt-1.5" : "mt-3"
+          }`}
+        >
+          {t.quoteTe ? <span className="text-primary/35">English: </span> : null}“{t.quote}”
+        </p>
+      </div>
+    </blockquote>
+  );
+}
 
 export function Testimonials() {
   return (
@@ -17,64 +77,35 @@ export function Testimonials() {
           subtitle="Telugu and English — our alumni in technology, cloud, and global customer success."
         />
 
-        <div className="mx-auto grid max-w-lg gap-5 md:max-w-6xl md:grid-cols-2">
-          {testimonials.map((t, i) => (
-            <motion.blockquote
-              key={t.name + t.initials}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-32px" }}
-              transition={{ delay: i * 0.06, duration: 0.4 }}
-              className="flex h-full flex-col overflow-hidden rounded-2xl border border-primary/6 bg-surface/80 shadow-card"
-            >
-              {t.photoSrc ? (
-                <div className="aspect-[4/3] w-full shrink-0 overflow-hidden bg-primary/5">
-                  <img
-                    src={t.photoSrc}
-                    alt={t.photoAlt ?? `${t.name} — student`}
-                    className="h-full w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              ) : null}
-              <div className="flex flex-1 flex-col p-6">
-                <div className="flex items-start justify-between gap-3">
-                  {!t.photoSrc ? (
-                    <div className={bubble} aria-hidden>
-                      {t.initials}
-                    </div>
-                  ) : (
-                    <span className="font-display text-xs font-bold uppercase tracking-wider text-accent-from">
-                      {t.initials}
-                    </span>
-                  )}
-                  <Quote className="h-7 w-7 shrink-0 text-accent-from/45" aria-hidden strokeWidth={1.5} />
-                </div>
-                {t.quoteTe ? (
-                  <p className="mt-3 text-sm font-medium leading-relaxed text-primary" lang="te">
-                    “{t.quoteTe}”
-                  </p>
-                ) : null}
-                <p
-                  className={`flex-1 text-sm leading-relaxed text-primary/75 ${t.quoteTe ? "mt-2" : "mt-3"}`}
-                >
-                  {t.quoteTe ? <span className="text-primary/50">English: </span> : null}“{t.quote}”
-                </p>
-                <footer className="mt-5 border-t border-primary/6 pt-4">
-                  <p className="font-display font-semibold text-primary">{t.name}</p>
-                  <p className="text-xs text-primary/55">
-                    {t.role}
-                    {t.year ? ` · ${t.year}` : null}
-                  </p>
-                  {t.credential ? (
-                    <p className="mt-1 text-xs font-medium text-primary/45">{t.credential}</p>
-                  ) : null}
-                </footer>
-              </div>
-            </motion.blockquote>
+        {/* Continuous horizontal scroll (paused on hover); duplicate strip hidden from assistive tech */}
+        <div className="motion-reduce:hidden relative -mx-4 md:-mx-6">
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-10 bg-gradient-to-r from-paper to-transparent md:w-14"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 z-[1] w-10 bg-gradient-to-l from-paper to-transparent md:w-14"
+            aria-hidden
+          />
+          <div className="overflow-hidden pb-1 pt-1">
+            <div className="medha-testimonial-marquee-track flex w-max gap-4 md:gap-5">
+              {testimonials.map((t) => (
+                <TestimonialCard key={`${t.initials}-a`} t={t} />
+              ))}
+              {testimonials.map((t) => (
+                <TestimonialCard key={`${t.initials}-b`} t={t} duplicate />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Stacked list when user prefers reduced motion — matches compact reference layout */}
+        <div className="mx-auto hidden max-w-lg flex-col gap-4 motion-reduce:flex">
+          {testimonials.map((t) => (
+            <TestimonialCard key={t.name + t.initials} t={t} fillGrid />
           ))}
         </div>
+
         <p className="mt-8 text-center text-sm text-primary/50">
           Building skills and careers in {site.area} since {site.established}.
         </p>

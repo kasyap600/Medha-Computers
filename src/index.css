@@ -40,6 +40,31 @@
   .btn-shine:focus-visible::after {
     @apply translate-x-full opacity-100;
   }
+
+  /** Testimonials strip — CSS animation so it always runs (Tailwind utility alone was flaky in dev). */
+  .medha-testimonial-marquee-track {
+    animation: medha-testimonial-marquee 28s linear infinite;
+    will-change: transform;
+  }
+
+  .medha-testimonial-marquee-track:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes medha-testimonial-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .medha-testimonial-marquee-track {
+    animation: none !important;
+  }
 }
 
 @layer utilities {
