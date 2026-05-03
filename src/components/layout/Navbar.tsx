@@ -35,7 +35,7 @@ export function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[box-shadow,backdrop-filter,background-color,border-color] duration-300 ${
-        scrolled || open ? "shadow-[0_8px_30px_-8px_rgba(11,31,58,0.12)]" : "shadow-none"
+        scrolled || open ? "shadow-[0_8px_30px_-8px_rgba(13,59,46,0.12)]" : "shadow-none"
       }`}
     >
       <div

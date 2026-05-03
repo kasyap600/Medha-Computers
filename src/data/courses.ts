@@ -4,6 +4,10 @@ export type Course = {
   duration: string;
   description: string;
   topics?: string[];
+  /** Learner profiles — shown as “Suitable for”. */
+  suitableFor?: string[];
+  /** Shown as a pill on the card (e.g. “New”). */
+  badge?: string;
   symbol?: string;
   logoSrc?: string;
 };
@@ -39,6 +43,8 @@ export const courseCategories: Category[] = [
           "Ethics and Safety of AI",
           "Prompt Engineering",
         ],
+        suitableFor: ["School & college students", "Beginners curious about AI", "Career explorers"],
+        badge: "New",
       },
     ],
   },
@@ -64,6 +70,7 @@ export const courseCategories: Category[] = [
           "Uploading",
           "E-Mail",
         ],
+        suitableFor: ["First-time users", "Students", "Anyone needing safe daily internet skills"],
       },
       {
         id: "web-dev",
@@ -73,6 +80,7 @@ export const courseCategories: Category[] = [
         description:
           "Web foundations and client-side skills for real pages and job readiness.",
         topics: ["HTML 5.0", "CSS", "JavaScript", "Practical project work"],
+        suitableFor: ["Students after DCA/PGDCA", "Job seekers", "Self-learners building a portfolio"],
       },
     ],
   },
@@ -87,6 +95,7 @@ export const courseCategories: Category[] = [
         logoSrc: "/branding/course-icons/c.svg",
         duration: "1 month",
         description: "Core programming logic and problem solving with C.",
+        suitableFor: ["B.Sc. / B.Com. students", "Engineering basics", "Interview preparation starters"],
       },
       {
         id: "python",
@@ -94,6 +103,7 @@ export const courseCategories: Category[] = [
         logoSrc: "/branding/python-logo-only.svg",
         duration: "1 month",
         description: "Python basics through scripts, data tasks, and next-step readiness.",
+        suitableFor: ["Students", "Job seekers", "Career upskillers"],
       },
       {
         id: "core-java-7",
@@ -101,6 +111,7 @@ export const courseCategories: Category[] = [
         logoSrc: "/branding/course-icons/java.svg",
         duration: "2 months",
         description: "OOP, core concepts, and practice toward desktop and interview style tasks.",
+        suitableFor: ["Programming track learners", "Students after C/Python", "Job-focused practice"],
       },
       {
         id: "oracle-10g",
@@ -108,6 +119,7 @@ export const courseCategories: Category[] = [
         logoSrc: "/branding/course-icons/oracle.svg",
         duration: "1 month",
         description: "SQL, PL/SQL foundations, and hands-on database practice.",
+        suitableFor: ["DCA/PGDCA students", "Data & backend starters", "Job seekers"],
       },
       {
         id: "tally-prime",
@@ -115,6 +127,13 @@ export const courseCategories: Category[] = [
         symbol: "📊",
         duration: "1 month",
         description: "Accountancy, GST-oriented practice, and office-ready Tally skills.",
+        topics: [
+          "Company & ledger setup",
+          "Vouchers & GST basics",
+          "Inventory & reports",
+          "Hands-on office scenarios",
+        ],
+        suitableFor: ["Commerce students", "Accounts assistants", "Job seekers", "Small business owners"],
       },
     ],
   },
@@ -126,16 +145,18 @@ export const courseCategories: Category[] = [
       {
         id: "dpl",
         title: "Diploma in Programming Languages (D.P.L)",
-        duration: "As per module",
+        duration: "Confirm at centre",
         description: "A focused diploma covering three core programming languages in depth.",
         topics: ["C", "Python", "Core Java 7"],
+        suitableFor: ["Serious coding learners", "Students wanting a programming bundle"],
       },
       {
         id: "dpl-dbms",
         title: "Diploma in Programming Languages & DBMS",
-        duration: "As per module",
+        duration: "Confirm at centre",
         description: "Programming plus database skills for data-aware applications.",
         topics: ["C", "Core Java 7", "Oracle 10g"],
+        suitableFor: ["Students", "Job seekers needing DB + code skills"],
       },
     ],
   },
@@ -147,7 +168,7 @@ export const courseCategories: Category[] = [
       {
         id: "dmo",
         title: "I. Diploma in MS Office (DMO)",
-        duration: "As per module",
+        duration: "Confirm at centre",
         description: "MS Office and internet essentials for school, office, and daily work.",
         topics: [
           "Introductory Concepts",
@@ -156,11 +177,12 @@ export const courseCategories: Category[] = [
           "MS Excel",
           "Internet",
         ],
+        suitableFor: ["School students", "Homemakers", "Office beginners"],
       },
       {
         id: "doa",
         title: "II. Diploma in Office Automation (DOA)",
-        duration: "As per module",
+        duration: "Confirm at centre",
         description: "DMO level plus access, typing, and file management for automation roles.",
         topics: [
           "DMO Topics",
@@ -169,23 +191,27 @@ export const courseCategories: Category[] = [
           "File Management",
           "Speed Typing",
         ],
+        suitableFor: ["Job seekers", "Administrative roles", "Students needing typing + Office"],
       },
       {
         id: "dca",
         title: "III. Diploma in Computer Applications (DCA)",
-        duration: "As per module",
-        description: "Broad DCA path with access and HTML for applications and the web.",
+        duration: "~3 months (practical batches)",
+        description:
+          "Diploma in Computer Applications — MS Office, internet, Access, and web basics with hands-on practice.",
         topics: [
           "Introductory Concepts",
-          "DMO Topics",
+          "MS Word, Excel, PowerPoint",
+          "Internet & email basics",
           "MS Access",
           "HTML 5.0 (Part I & Part II)",
         ],
+        suitableFor: ["Students", "Job seekers", "Homemakers", "Anyone new to computers"],
       },
       {
         id: "pgdca",
         title: "IV. PG Diploma in Computer Applications (PGDCA)",
-        duration: "As per module",
+        duration: "Confirm at centre",
         description: "Post-graduate track building on DCA with database and front-end web skills.",
         topics: [
           "DCA Topics",
@@ -193,11 +219,12 @@ export const courseCategories: Category[] = [
           "CSS",
           "JavaScript",
         ],
+        suitableFor: ["Graduates", "Job seekers", "DCA completers going deeper"],
       },
       {
         id: "pgdoa",
         title: "V. PG Diploma in Office Automation (PGDOA)",
-        duration: "As per module",
+        duration: "Confirm at centre",
         description: "DOA level plus Tally, printing, scanning, and job-related office tasks.",
         topics: [
           "Introduction",
@@ -208,11 +235,12 @@ export const courseCategories: Category[] = [
           "Speed Typing",
           "Scanning",
         ],
+        suitableFor: ["Office job aspirants", "DOA graduates", "Accounts + admin roles"],
       },
       {
         id: "softech",
         title: "VI. Softech",
-        duration: "As per module",
+        duration: "Long program — confirm at centre",
         description:
           "Comprehensive program spanning office, languages, web, database, Tally, typing, and AI.",
         topics: [
@@ -226,6 +254,7 @@ export const courseCategories: Category[] = [
           "Job Works, Speed Typing, Printing",
           "Artificial Intelligence",
         ],
+        suitableFor: ["Career-focused learners", "After 10th/12th", "Full-stack office + IT path"],
       },
     ],
   },

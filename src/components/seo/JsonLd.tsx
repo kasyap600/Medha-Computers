@@ -13,22 +13,27 @@ export function JsonLd() {
       (s) => s.length > 0
     );
 
+    const postalAddress = {
+      "@type": "PostalAddress",
+      streetAddress: site.streetAddress,
+      addressLocality: "Nayudupeta",
+      addressRegion: "Andhra Pradesh",
+      addressCountry: "IN",
+    } as const;
+
     const data = {
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
       name: site.name,
-      description: site.subhead,
+      alternateName: "Medha Computers Nayudupeta",
+      description: `${site.subhead} Computer institute in Nayudupeta — Tally, DCA, PGDCA, Python, and AI programs.`,
       url: base,
       telephone: site.phoneTel,
+      address: postalAddress,
       areaServed: {
         "@type": "Place",
         name: site.area,
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Nayudupeta",
-          addressRegion: "Andhra Pradesh",
-          addressCountry: "IN",
-        },
+        address: postalAddress,
       },
       ...(sameAs.length ? { sameAs } : {}),
     };

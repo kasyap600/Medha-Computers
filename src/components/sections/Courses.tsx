@@ -9,7 +9,7 @@ export function Courses() {
         <SectionHeading
           eyebrow="Programs"
           title="Courses designed for the real world"
-          subtitle="From AI to diplomas, learn in a structured way with clear duration and support. Choose a course below to start your enrollment."
+          subtitle="Look for the New badge on our AI program — plus diplomas and short courses with clear duration and support. Choose a course below to start your enrollment."
         />
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {allCourses.map((c) => (

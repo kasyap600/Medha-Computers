@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { quickLinks, site } from "../../data/site";
 import { BrandLockup } from "../ui/BrandLockup";
 
@@ -76,30 +76,71 @@ export function Footer() {
             <h3 className="font-display text-sm font-semibold uppercase tracking-wider text-white/50">
               Follow
             </h3>
-            {socials.length ? (
-              <ul className="mt-4 space-y-2 text-sm">
-                {socials.map((s) => (
-                  <li key={s.label}>
-                    <a
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white/80 hover:text-white hover:underline"
-                    >
-                      {s.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="mt-4 text-sm text-white/50">Add social URLs in data/site when ready.</p>
-            )}
+            <ul className="mt-4 space-y-2 text-sm">
+              <li>
+                <a
+                  href={site.whatsappChannelHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[#25D366] transition hover:text-[#20BD5A] hover:underline"
+                >
+                  <MessageCircle className="h-4 w-4 shrink-0" aria-hidden />
+                  WhatsApp channel
+                </a>
+              </li>
+              {socials.map((s) => (
+                <li key={s.label}>
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/80 hover:text-white hover:underline"
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            {!socials.length ? (
+              <p className="mt-3 text-xs text-white/45">
+                Add Facebook, Instagram, or YouTube in site data when ready.
+              </p>
+            ) : null}
           </div>
         </div>
 
-        <p className="mt-10 border-t border-white/10 pt-8 text-center text-xs text-white/45">
-          © {new Date().getFullYear()} {site.name}. {site.iso}
-        </p>
+        <div className="mt-10 space-y-6 border-t border-white/10 pt-8">
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
+            <a
+              href={site.whatsappChannelHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-[#25D366]/50 bg-[#25D366]/15 px-5 py-2.5 text-sm font-semibold text-[#25D366] transition hover:bg-[#25D366]/25"
+            >
+              <MessageCircle className="h-4 w-4 shrink-0" aria-hidden />
+              Join our WhatsApp channel
+            </a>
+            <span className="hidden text-white/25 sm:inline" aria-hidden>
+              ·
+            </span>
+            <p className="text-center text-xs text-white/55 sm:text-left">
+              Course updates and announcements on{" "}
+              <a
+                href={site.whatsappChannelHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-[#25D366] underline decoration-[#25D366]/40 underline-offset-2 hover:decoration-[#25D366]"
+              >
+                WhatsApp
+              </a>
+              .
+            </p>
+          </div>
+
+          <p className="text-center text-xs text-white/45">
+            © {new Date().getFullYear()} {site.name}. {site.iso}
+          </p>
+        </div>
       </div>
     </footer>
   );

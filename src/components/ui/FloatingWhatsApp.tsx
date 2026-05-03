@@ -1,10 +1,8 @@
 import { MessageCircle } from "lucide-react";
 import { site } from "../../data/site";
 
-const defaultText = "Hi — I visited your website and would like course information.";
-
 export function FloatingWhatsApp() {
-  const href = `${site.whatsappHref}?text=${encodeURIComponent(defaultText)}`;
+  const href = `${site.whatsappHref}?text=${encodeURIComponent(site.whatsappPrefillDefault)}`;
 
   return (
     <a

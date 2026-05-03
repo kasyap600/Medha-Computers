@@ -21,8 +21,8 @@ export function AIHighlight() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-6">
         <SectionHeading
-          eyebrow="New"
-          title="Now introducing AI courses"
+          eyebrow="Introducing AI"
+          title="Now enrolling — AI courses & combinations"
           subtitle="AI careers are growing in India and around the world. We teach how to use AI safely and effectively, plus the programming foundations employers still value."
           dark
           action={

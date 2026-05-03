@@ -10,6 +10,7 @@ import { CampusGallery } from "./components/sections/CampusGallery";
 import { Contact } from "./components/sections/Contact";
 import { Courses } from "./components/sections/Courses";
 import { FAQ } from "./components/sections/FAQ";
+import { FeesOffers } from "./components/sections/FeesOffers";
 import { Hero } from "./components/sections/Hero";
 import { Testimonials } from "./components/sections/Testimonials";
 import { WhyChooseUs } from "./components/sections/WhyChooseUs";
@@ -25,12 +26,13 @@ function App() {
       <main>
         <Hero />
         <About />
+        <AIHighlight />
         <Courses />
         <WhyChooseUs />
-        <FAQ />
-        <AIHighlight />
-        <CampusGallery />
         <Testimonials />
+        <FeesOffers />
+        <FAQ />
+        <CampusGallery />
         <Contact />
       </main>
       <Footer />

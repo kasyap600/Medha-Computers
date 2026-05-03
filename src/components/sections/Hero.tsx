@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
-import { site } from "../../data/site";
+import { Check } from "lucide-react";
+import { site, valueBullets } from "../../data/site";
 import { ButtonLink } from "../ui/ButtonLink";
 import { BrandLockup } from "../ui/BrandLockup";
 
@@ -54,17 +54,37 @@ export function Hero() {
             <p className="mt-3 text-balance text-sm text-white/60 md:text-base">{site.subhead}</p>
           </motion.div>
 
-          <motion.div
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.16, duration: 0.5 }}
+            className="mx-auto mt-6 max-w-2xl text-center font-display text-sm font-semibold text-white/90 md:text-base"
+          >
+            Why join {site.name}?
+          </motion.p>
+          <motion.ul
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.18, duration: 0.5 }}
-            className="mt-4"
+            className="mx-auto mt-4 grid max-w-3xl list-none grid-cols-1 gap-2.5 p-0 text-left sm:grid-cols-2"
           >
-            <span className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-medium text-accent-to backdrop-blur-sm md:mt-5">
-              <Sparkles className="h-3.5 w-3.5" aria-hidden />
-              Job-oriented · Hands-on · Supportive
-            </span>
-          </motion.div>
+            {valueBullets.map((row) => (
+              <li
+                key={row.en}
+                className="flex gap-3 rounded-xl border border-white/12 bg-white/[0.06] px-3 py-2.5 backdrop-blur-sm sm:px-4 sm:py-3"
+              >
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-from/25 text-primary">
+                  <Check className="h-3.5 w-3.5" strokeWidth={2.5} aria-hidden />
+                </span>
+                <span>
+                  <span className="block text-sm font-medium leading-snug text-white">{row.en}</span>
+                  <span className="mt-0.5 block text-xs leading-snug text-white/70" lang="te">
+                    {row.te}
+                  </span>
+                </span>
+              </li>
+            ))}
+          </motion.ul>
 
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -73,20 +93,24 @@ export function Hero() {
             className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4"
           >
             <ButtonLink
-              href="#courses"
-              variant="secondary"
-              className="px-8 py-3.5 text-base"
-            >
-              Browse courses
-            </ButtonLink>
-            <ButtonLink
               href="#contact"
               variant="primary"
               className="px-8 py-3.5 text-base"
             >
-              Enroll now
+              Join today
+            </ButtonLink>
+            <ButtonLink href="#courses" variant="secondary" className="px-8 py-3.5 text-base">
+              Browse courses
             </ButtonLink>
           </motion.div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.32, duration: 0.45 }}
+            className="mt-4 text-center text-xs font-medium text-accent-to/95 md:text-sm"
+          >
+            {site.feesOffers.urgencyLine}
+          </motion.p>
         </div>
       </div>
     </section>
