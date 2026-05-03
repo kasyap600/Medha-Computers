@@ -3,9 +3,17 @@
 @tailwind utilities;
 
 @layer base {
+  /*
+   * Base paints: ensures navy + white theme even if a stale stylesheet is cached briefly.
+   * Tailwind utilities still control components.
+   */
+  :root {
+    color-scheme: light;
+  }
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
+    @apply bg-surface;
   }
   @media (prefers-reduced-motion: reduce) {
     html {

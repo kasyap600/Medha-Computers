@@ -17,7 +17,7 @@ import { WhyChooseUs } from "./components/sections/WhyChooseUs";
 
 function App() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-surface text-primary antialiased">
       <ScrollProgress />
       <Navbar />
       <BackToTop />

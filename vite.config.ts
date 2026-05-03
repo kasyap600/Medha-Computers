@@ -10,6 +10,10 @@ export default defineConfig(({ mode }) => {
   const siteUrl = (env.VITE_SITE_URL || DEFAULT_SITE_URL).replace(/\/$/, "");
 
   return {
+    server: {
+      // OneDrive / Windows: config/CSS sometimes misses file events without polling
+      watch: { usePolling: true, interval: 400 },
+    },
     plugins: [
       react(),
       {

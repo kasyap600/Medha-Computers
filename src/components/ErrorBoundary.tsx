@@ -28,7 +28,7 @@ export class ErrorBoundary extends Component<Props, State> {
           </p>
           <button
             type="button"
-            className="btn-shine mt-6 inline-flex min-h-[48px] items-center justify-center rounded-full bg-gradient-cta px-6 py-3 text-sm font-semibold text-primary shadow-md"
+            className="btn-shine mt-6 inline-flex min-h-[48px] items-center justify-center rounded-full bg-gradient-cta px-6 py-3 text-sm font-semibold text-white shadow-md shadow-black/10"
             onClick={() => window.location.reload()}
           >
             Refresh page

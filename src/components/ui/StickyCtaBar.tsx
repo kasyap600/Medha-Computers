@@ -17,7 +17,7 @@ export function StickyCtaBar() {
 
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-30 border-t border-primary/10 bg-paper/95 px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2 shadow-[0_-8px_30px_-8px_rgba(13,59,46,0.12)] backdrop-blur-md lg:hidden"
+      className="fixed inset-x-0 bottom-0 z-30 border-t border-black/8 bg-paper/95 px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2 shadow-[0_-8px_30px_-8px_rgba(0,0,0,0.12)] backdrop-blur-md lg:hidden"
       role="region"
       aria-label="Quick enroll and call"
     >

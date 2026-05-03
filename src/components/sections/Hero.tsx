@@ -73,7 +73,7 @@ export function Hero() {
                 key={row.en}
                 className="flex gap-3 rounded-xl border border-white/12 bg-white/[0.06] px-3 py-2.5 backdrop-blur-sm sm:px-4 sm:py-3"
               >
-                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-from/25 text-primary">
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-from/25 text-white">
                   <Check className="h-3.5 w-3.5" strokeWidth={2.5} aria-hidden />
                 </span>
                 <span>

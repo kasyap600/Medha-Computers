@@ -11,7 +11,7 @@ export function CourseCard({ course }: Props) {
 
   return (
     <article
-      className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-paper p-6 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:border-accent-from/20 hover:shadow-[0_12px_40px_rgba(13,59,46,0.1),0_0_0_1px_rgba(194,65,12,0.14)] ${
+      className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-paper p-6 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:border-accent-from/35 hover:shadow-[0_12px_40px_rgba(30,58,138,0.1),0_0_0_1px_rgba(37,99,235,0.22)] ${
         course.badge
           ? "border-accent-from/25 ring-1 ring-accent-from/20"
           : "border-primary/8"
@@ -42,7 +42,7 @@ export function CourseCard({ course }: Props) {
           ) : null}
           <span>{course.title}</span>
           {course.badge ? (
-            <span className="inline-flex items-center rounded-full bg-gradient-cta px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-primary shadow-sm">
+            <span className="inline-flex items-center rounded-full bg-gradient-cta px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white shadow-sm shadow-black/10">
               {course.badge}
             </span>
           ) : null}
