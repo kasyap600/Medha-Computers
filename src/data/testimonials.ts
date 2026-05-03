@@ -34,7 +34,7 @@ export const testimonials: Testimonial[] = [
       "Medha Computers gave me a solid base in computer skills and confidence—skills I still build on today in a global customer-facing role.",
     name: "Nikhil Kumar M.",
     role: "Customer Success Manager",
-    year: "2009",
+    year: "2019",
     credential: "Medha Computers alumnus",
     initials: "NKM",
     photoSrc: "/testimonials/nikhil.png",
@@ -50,6 +50,17 @@ export const testimonials: Testimonial[] = [
     initials: "YB",
     photoSrc: "/testimonials/bindu.png",
     photoAlt: "Y.C. Bindu Priya — Software Engineer, Medha Computers alumnus",
+  },
+  {
+    quote:
+      "Training at Medha Computers was practical and easy to follow. I learned skills I could use right away, and the supportive teaching helped me grow confident with computers and technology.",
+    name: "Rishitha G.C.V",
+    role: "Student",
+    year: "2022",
+    credential: "Medha Computers alumnus",
+    initials: "RG",
+    photoSrc: "/testimonials/rishi.png",
+    photoAlt: "Rishitha G.C.V — Medha Computers alumnus",
   },
 ];
 
