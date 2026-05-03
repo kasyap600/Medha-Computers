@@ -33,8 +33,20 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-6">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-4 text-sm text-white/55 md:mb-5 md:text-base">
-            Trusted for 30 years · Est. {site.established} · {site.iso}
+          <p className="mb-4 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-white/55 md:mb-5 md:text-base">
+            <span className="text-center">
+              Trusted for 30 years · Est. {site.established} ·
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <img
+                src={site.isoLogo}
+                alt=""
+                width={32}
+                height={32}
+                className="h-7 w-7 shrink-0 object-contain opacity-95 md:h-8 md:w-8"
+              />
+              <span>{site.iso}</span>
+            </span>
           </p>
           <motion.h1
             initial={{ opacity: 0, y: 12 }}

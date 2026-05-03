@@ -59,7 +59,7 @@ export function About() {
               <div className="flex flex-col gap-3 rounded-xl border border-primary/8 bg-surface/50 p-4 ring-1 ring-primary/5">
                 <div className="shrink-0 self-start rounded-lg bg-surface p-3 ring-1 ring-primary/5">
                   <img
-                    src="/branding/iso.webp"
+                    src={site.isoLogo}
                     alt="ISO 9001:2015"
                     className="h-14 w-14 object-contain sm:h-16 sm:w-16"
                   />

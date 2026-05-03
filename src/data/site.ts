@@ -49,13 +49,15 @@ export const site = {
   },
   brochureUrl: "",
   iso: "ISO 9001:2015 Certified",
+  /** ISO mark image (Hero trust line + About certifications). */
+  isoLogo: "/branding/iso.webp",
   /**
    * Institute logo in About → Certifications (source: LOGO-3.tif → `npm run branding:convert` → `public/branding/logo-3.webp`).
    */
   certificationsInstituteLogo: {
     image: "/branding/logo-3.webp",
-    title: "MSME Recognition",
-    blurb: "Recognized under MSME, supporting skill development and employment-focused computer education.",
+    title: "MSME Registered",
+    blurb: "Registered under MSME, supporting skill development and employment-focused computer education.",
   },
   contactEmail: "",
   social: {

@@ -2,23 +2,27 @@ import { useState } from "react";
 import { ScrollSection } from "../ui/ScrollSection";
 import { SectionHeading } from "../ui/SectionHeading";
 
-/** Add files under `public/` — missing images hide that tile (no broken icons). */
+/**
+ * Campus photos live under `public/branding/` (same paths must be committed for Vercel).
+ * Missing files hide that tile via `onError` (no broken icons).
+ */
 const shots = [
   {
     id: "office",
-    src: "/office.jpeg",
+    src: "/branding/office.webp",
     alt: "Medha Computers — classroom / office in Nayudupeta",
   },
   {
     id: "lab",
-    src: "/lab.jpeg",
+    src: "/branding/lab.webp",
     alt: "Students practising hands-on at computer workstations",
   },
-  {
-    id: "teaching",
-    src: "/teaching.jpeg",
-    alt: "Instructor-led session — Telugu and English explanation",
-  },
+  // Add `public/branding/teaching.webp` and uncomment when ready:
+  // {
+  //   id: "teaching",
+  //   src: "/branding/teaching.webp",
+  //   alt: "Instructor-led session — Telugu and English explanation",
+  // },
 ] as const;
 
 function GalleryItem({ src, alt }: { src: string; alt: string }) {
