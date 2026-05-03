@@ -38,8 +38,15 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-export const trustHighlights = [
+export type TrustHighlight = {
+  label: string;
+  detail: string;
+  /** Renders `site.isoLogo` in Why Medha trust strip. */
+  showIsoLogo?: boolean;
+};
+
+export const trustHighlights: readonly TrustHighlight[] = [
   { label: "Since 1995", detail: "Three decades in Nayudupeta" },
-  { label: "ISO 9001:2015", detail: "Certified quality system" },
+  { label: "ISO 9001:2015", detail: "Certified quality system", showIsoLogo: true },
   { label: "Batches", detail: "Morning & evening (Mon–Sat)" },
 ] as const;

@@ -7,6 +7,7 @@ import {
   LineChart,
   Heart,
 } from "lucide-react";
+import { site } from "../../data/site";
 import { trustHighlights } from "../../data/testimonials";
 import { SectionHeading } from "../ui/SectionHeading";
 
@@ -58,11 +59,29 @@ export function WhyChooseUs() {
 
         <ul className="mb-10 grid list-none grid-cols-1 gap-4 rounded-2xl border border-primary/6 bg-paper/80 p-4 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-primary/8 sm:p-5">
           {trustHighlights.map((h) => (
-            <li key={h.label} className="flex min-h-[3rem] flex-col justify-center px-2 text-center sm:px-4 sm:text-left">
-              <span className="font-display text-xs font-bold uppercase tracking-wider text-accent-from">
-                {h.label}
-              </span>
-              <span className="mt-0.5 text-sm text-primary/75">{h.detail}</span>
+            <li
+              key={h.label}
+              className={
+                h.showIsoLogo
+                  ? "flex min-h-[3rem] flex-col items-center justify-center gap-2 px-2 text-center sm:flex-row sm:items-center sm:gap-3 sm:px-4 sm:text-left"
+                  : "flex min-h-[3rem] flex-col justify-center px-2 text-center sm:px-4 sm:text-left"
+              }
+            >
+              {h.showIsoLogo ? (
+                <img
+                  src={site.isoLogo}
+                  alt=""
+                  width={48}
+                  height={48}
+                  className="h-11 w-11 shrink-0 object-contain sm:h-12 sm:w-12"
+                />
+              ) : null}
+              <div className={h.showIsoLogo ? "min-w-0" : undefined}>
+                <span className="font-display text-xs font-bold uppercase tracking-wider text-accent-from">
+                  {h.label}
+                </span>
+                <span className="mt-0.5 block text-sm text-primary/75">{h.detail}</span>
+              </div>
             </li>
           ))}
         </ul>
